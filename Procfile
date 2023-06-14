@@ -1,0 +1,1 @@
+web gunicorn Pdftoimg.wsgi:application --log-file -

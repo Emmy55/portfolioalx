@@ -1,0 +1,82 @@
+/* .animated {
+    height: 421px;
+    width: 100%;
+    background-repeat: no-repeat;
+} */
+.fadeInLeft {
+    background-image: none;
+    overflow: hidden;
+    -webkit-animation: fadeInLeft 1.2s both;
+    animation: fadeInLeft 1.2s both;
+    -moz-animation: fadeInLeft 1.2s both;
+    -o-animation: fadeInLeft 1.2s both;
+}
+@keyframes fadeInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-220px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.fadeInTop{
+    background-image: none;
+    animation: fadeInTop 1.2s both;
+}
+@keyframes fadeInTop  {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fadeInBottom{
+    background-image: none;
+    animation: fadeInBottom 1.2s both;
+}
+@keyframes fadeInBottom  {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.fadeInRight {
+    background-image: none;
+    overflow: hidden;
+    animation: fadeInRight 1.2s both;
+}
+@keyframes fadeInRight  {
+    0% {
+        opacity: 0;
+        transform: translateX(220px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }    
+}
+/* .container {
+    overflow:hidden;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+

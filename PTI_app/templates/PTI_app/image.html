@@ -1,0 +1,87 @@
+{% extends 'PTI_app/home.html' %}
+{% block content %}
+
+{% load static %}
+
+<head>
+    <style>
+        body {
+            overflow: visible;
+        }
+
+        .container {
+            display: none;
+        }
+
+        .result {
+            box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.183);
+            height: 20pc;
+            border-radius: 20px;
+            position: relative;
+            left: 10%;
+            width: 80%;
+            margin-top: 8pc;
+            background-color:black;
+            
+        }
+        .images {
+            display:flex;
+            overflow-x:scroll;
+        }
+        nav ul li:nth-child(1) {
+            font-size: 16px;
+        }
+
+        nav ul li:nth-child(2) {
+            position: relative;
+            top: -9px;
+            overflow: hidden;
+            color: rgb(0, 84, 252);
+            font-size: 20px;
+        }
+        img{
+            padding: 5px;
+            width:45%;
+            /* height:70%; */
+            position: relative;
+            left: 28%;
+        }
+        input[type="submit"]{
+            background-color: #d7171f;
+            width: 40%;
+            left: 30%;
+            position: absolute;
+        }
+        footer{
+            width: 101.1%;
+            position: relative;
+            left: -.4.8%;
+        }
+        .result h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<div class="animated result">
+
+    <!-- <div class="animated result"> -->
+        <h1 style="color: white;">Image Display</h1>
+        <div class="images">
+        {% for image_file in image_files %}
+        <img src="{{ image_file }}" alt="Converted Image">
+    {% endfor %}
+    <input type="submit" value="Download">
+
+</div>
+
+    </div>
+<!-- </div> -->
+
+
+
+
+
+{% endblock %}
