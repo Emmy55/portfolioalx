@@ -50,16 +50,7 @@
             color: #d7171f;
         }
         
-        input[type="submit"]:hover{
-            position: absolute;
-            left: 39.6%;
-
-            width: 21%;
-            height: 31px;
-
-            
-
-        }
+       
         .small_logo img {
             width: 60%;
         }
@@ -125,9 +116,12 @@
             margin: 0;
 
             }
+            .body {
+                height: 25pc;
+                width: 100%;
+            }
             .container {
                 margin-top: 5pc;
-                height: 35pc;
                 text-align: center;
             }
             .product {
@@ -165,7 +159,7 @@
             width: 100%;
             left: .1%;
             position: relative;
-                bottom: -61%;
+                bottom: -25%;
                 text-align: center;
                 background-color: black;
                 height: 37px;
@@ -276,6 +270,16 @@
         }
 
         @media only screen and (min-width: 768px) and (max-width: 1023px) {
+            input[type="submit"]:hover{
+                position: absolute;
+                left: 39.6%;
+    
+                width: 21%;
+                height: 31px;
+    
+                
+    
+            }
             a {
                 color: white;
                 text-decoration: none;
@@ -375,7 +379,16 @@
 
         @media only screen and (min-width: 1024px) {
 
-
+            input[type="submit"]:hover{
+                position: absolute;
+                left: 39.6%;
+    
+                width: 21%;
+                height: 31px;
+    
+                
+    
+            }
             .burger {
                 display: none;
             }

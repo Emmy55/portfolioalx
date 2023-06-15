@@ -61,6 +61,59 @@
             font-size: 30px;
             text-align: center;
         }
+        a {
+            text-decoration:none;
+        }
+        .input {
+            background-color:#d7171f;
+            text-align:center;  
+            width: 50%;
+            position: absolute;
+            left: 25%;
+        }
+        @media only screen and (min-width: 1024px) {
+            .input {
+                position:absolute;
+                z-index:1;
+                top:10px;
+                left:75%;
+                height:40px;
+                animation-name:beep;
+                animation-duration: 1s;
+                animation-delay: .2s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                padding: 0px;
+            }
+            @keyframes beep {
+                
+                0%{
+                    padding: 5px;
+                }
+                100% {
+                    padding: 7px;
+                    
+                }
+            }
+            img{
+            padding: 5px;
+            width:35%;
+            height:38%;
+            position: relative;
+            left: 28%;
+        }
+        .result {
+            box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.183);
+            height:40pc;
+            border-radius: 20px;
+            position: relative;
+            left: 10%;
+            width: 80%;
+            margin-top: 8pc;
+            background-color:black;
+            
+        }
+        }
     </style>
 </head>
 
@@ -73,17 +126,36 @@
         {% for image_file in image_files %}
         <img src="{{ image_file }}" alt="Converted Image">
     {% endfor %}
-    <a class="input" href="{% url 'download_images' output_folder %}">
-        Download
-    </a>
-
+    
+    <button class="input" onclick="downloadAllImages()">Download All</button>
 </div>
 
     </div>
 <!-- </div> -->
 
 
-
+<script>
+    function downloadAllImages() {
+        var imageElements = document.getElementsByClassName('images')[0].getElementsByTagName('img');
+        var imageUrls = [];
+        
+        // Collect the image URLs
+        for (var i = 0; i < imageElements.length; i++) {
+            imageUrls.push(imageElements[i].src);
+        }
+        
+        // Create an anchor element for each image URL
+        for (var j = 0; j < imageUrls.length; j++) {
+            var link = document.createElement('a');
+            link.href = imageUrls[j];
+            link.download = 'image' + (j + 1) + '.jpg';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }
+</script>
 
 
 {% endblock %}
