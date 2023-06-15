@@ -100,10 +100,10 @@
         }
         .snippet {
             position: relative;
-            top: 60px;
+            top: 100px;
             left: 10%;
             width: 80%;
-            margin-bottom: 5pc;
+            margin-bottom: 6pc;
         }
         @media only screen and (max-width: 767px) {
             .custom-file-upload {
@@ -277,6 +277,13 @@
         }
 
         @media only screen and (min-width: 768px) and (max-width: 1023px) {
+            .snippet {
+                position: relative;
+                top: 60px;
+                left: 10%;
+                width: 80%;
+                margin-bottom: 67pc;
+            }
             *{
                 margin: 0;
             }
