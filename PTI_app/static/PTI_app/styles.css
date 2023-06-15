@@ -127,6 +127,7 @@
             }
             .container {
                 margin-top: 5pc;
+                height: 25pc;
                 text-align: center;
             }
             .product {
@@ -145,7 +146,7 @@
                 top: 30px;
                 width: 60%;
             }
-            input[type="submit"]{
+            input[type="submit"], .input{
                 cursor: pointer;
                 font-weight: bolder;
                 position: absolute;
@@ -487,7 +488,7 @@
                 color: #d7171f;
                 font-size: 20px;
             }
-            input[type="submit"]{
+            input[type="submit"], .input{
                 cursor: pointer;
                 font-weight: bolder;
                 position: absolute;

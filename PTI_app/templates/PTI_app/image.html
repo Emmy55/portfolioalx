@@ -73,7 +73,9 @@
         {% for image_file in image_files %}
         <img src="{{ image_file }}" alt="Converted Image">
     {% endfor %}
-    <input type="submit" value="Download">
+    <a class="input" href="{% url 'download_images' output_folder %}">
+        Download
+    </a>
 
 </div>
 

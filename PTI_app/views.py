@@ -45,7 +45,39 @@ def upload_pdf(request):
         pdf_file_obj = PDFFile(pdf_file=pdf_file)
         pdf_file_obj.save()
 
-        return render(request, 'PTI_app/image.html', {'image_files': images})
+        return render(request, 'PTI_app/image.html', {'output_folder': output_folder, 'image_files': images})
 
     elif request.method == 'GET':
         return render(request, 'PTI_app/home.html')
+import glob
+from django.http import HttpResponse
+from django.conf import settings
+import os
+import zipfile
+
+
+def download_images(request, output_folder):
+    # Define the directory path where the images are stored
+    image_dir = os.path.join(settings.MEDIA_ROOT, 'pdf_images', output_folder)
+
+    # Generate a unique zip file name
+    zip_filename = f'{output_folder}.zip'
+
+    # Create a ZIP file to store the images
+    with zipfile.ZipFile(zip_filename, 'w') as zipf:
+        # Add each image file to the ZIP file
+        for image_path in glob.glob(os.path.join(image_dir, '*.jpeg')):
+            image_name = os.path.basename(image_path)
+            zipf.write(image_path, arcname=image_name)
+
+    # Read the ZIP file content
+    with open(zip_filename, 'rb') as f:
+        zip_content = f.read()
+
+    # Delete the ZIP file after reading its content
+    os.remove(zip_filename)
+
+    # Create a response with the ZIP file content as attachment
+    response = HttpResponse(zip_content, content_type='application/zip')
+    response['Content-Disposition'] = f'attachment; filename="{zip_filename}"'
+    return response
