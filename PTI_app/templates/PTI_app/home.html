@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,38 +18,23 @@
 
 <body>
 <div class="body">
-
     <nav>
-
         <div class="burger">
             <i class="fa-solid fa-bars"></i>
         </div>
 
         <div class="logo" id="nav-logo">
-            <h2 onclick="location.href='{% url 'convert_pdf' %}'">EMMY<span>DEV</span></h2>
-
+            <!-- <h2 onclick="location.href='{% url 'convert_pdf' %}'">EMMY<span>DEV</span></h2> -->
         </div>
 
         <ul>
-            <li onclick="location.href='{% url 'convert_pdf' %}'">PDF</li>
-
-
-
-
+            <!-- <li onclick="location.href='{% url 'convert_pdf' %}'">PDF</li> -->
         </ul>
-
-
     </nav>
 
     {% block content %}
 
-
-
-
     {% endblock %}
-
-
-    
     <div class="container">
         <h1 class="animate__animated animate__bounceInLeft">Upload a PDF to convert to Image</h1>
 
@@ -62,19 +46,14 @@
             {% csrf_token %}
             <label for="myFile" class="custom-file-upload">Choose File</label>
             <input id="myFile" type="file" name="pdf_file" accept="application/pdf" required>
-
-            <!-- <input id="myFile" type="file" value="Upload Pdf"  accept="application/pdf" required name="pdf_file"> -->
             <input type="submit" value="Convert">
         </form>
         </div>
     </div>
-
-
     <footer>
         <div class="d-flex justify-content-center mb-4">
             <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com/Emmy5055"><i
                     class="fab fa-twitter"></i></a>
-            <!-- <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a> -->
             <a class="btn btn-outline-primary btn-square mr-2"
                 href="https://www.linkedin.com/in/emmanuel-nkereuwem-348029245/"><i
                     class="fab fa-linkedin-in"></i></a>
@@ -82,39 +61,22 @@
                     class="fab fa-github"></i></a>
         </div>
     </footer>
-
 </div>
     <script src="{% static 'PTI_app/modern.js' %}"></script>
-
-    
-
     <script src="modern.js"></script>
-
     <script>
         const hamburgerMenu = document.querySelector('.hamburger-menu');
         var body = document.querySelector('body');
-
-
-
-
-
-
         btn = document.querySelector(".burger");
-
         navlist = document.querySelector("ul");
-
         bod = document.querySelector("#head");
-
         btn1 = document.querySelector(".burger1");
-
-
         btn.addEventListener("click", (event) => {
             btn.innerHTML = btn.innerHTML.includes("fa-xmark")
                 ? `<i class="fa-solid fa-bars"></i>`
                 : `<i class="fa-sharp fa-solid fa-xmark"></i>`;
             navlist.classList.toggle("clipped").checked;
             event.stopPropagation();
-
         });
     </script>
     <script src="https://kit.fontawesome.com/9da17deac8.js" crossorigin="anonymous"></script>
