@@ -6,7 +6,7 @@ import zipfile
 import fitz
 from django.http import HttpResponse
 from .models import PDFFile
-
+from django.http import Http404
 
 def sanitize_filename(filename):
     valid_chars = f"-_.() {string.ascii_letters}{string.digits}"
@@ -49,35 +49,41 @@ def upload_pdf(request):
 
     elif request.method == 'GET':
         return render(request, 'PTI_app/home.html')
-import glob
 from django.http import HttpResponse
 from django.conf import settings
 import os
 import zipfile
+import mimetypes
 
 
 def download_images(request, output_folder):
     # Define the directory path where the images are stored
     image_dir = os.path.join(settings.MEDIA_ROOT, 'pdf_images', output_folder)
 
-    # Generate a unique zip file name
-    zip_filename = f'{output_folder}.zip'
+    # Get the first image file in the directory
+    image_file = next(iter(os.listdir(image_dir)), None)
 
-    # Create a ZIP file to store the images
-    with zipfile.ZipFile(zip_filename, 'w') as zipf:
-        # Add each image file to the ZIP file
-        for image_path in glob.glob(os.path.join(image_dir, '*.jpeg')):
-            image_name = os.path.basename(image_path)
-            zipf.write(image_path, arcname=image_name)
+    if image_file:
+        # Construct the path of the image file
+        image_path = os.path.join(image_dir, image_file)
 
-    # Read the ZIP file content
-    with open(zip_filename, 'rb') as f:
-        zip_content = f.read()
+        # Open the image file in binary mode
+        with open(image_path, 'rb') as f:
+            # Read the image data
+            image_data = f.read()
 
-    # Delete the ZIP file after reading its content
-    os.remove(zip_filename)
+        # Guess the MIME type of the image file
+        mime_type, _ = mimetypes.guess_type(image_file)
+        if mime_type is None:
+            mime_type = 'application/octet-stream'
 
-    # Create a response with the ZIP file content as attachment
-    response = HttpResponse(zip_content, content_type='application/zip')
-    response['Content-Disposition'] = f'attachment; filename="{zip_filename}"'
-    return response
+        # Create a response with the image data
+        response = HttpResponse(image_data, content_type=mime_type)
+
+        # Set the Content-Disposition header to specify the filename
+        response['Content-Disposition'] = f'attachment; filename="{image_file}"'
+
+        return response
+
+    # If no image file is found, raise a 404 error
+    raise Http404("Image not found.")
