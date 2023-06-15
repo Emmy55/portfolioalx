@@ -76,7 +76,6 @@
         width: 101.5%;
         left: -8px;
         position: relative;
-            bottom: -87px;
             text-align: center;
             background-color: black;
             height: 37px;
@@ -104,6 +103,7 @@
             top: 60px;
             left: 10%;
             width: 80%;
+            margin-bottom: 5pc;
         }
         @media only screen and (max-width: 767px) {
             .custom-file-upload {
@@ -152,12 +152,12 @@
                 font-weight: bolder;
                 position: absolute;
                 text-align: center;
-                left: 34%;
+                left: 30%;
                 border: none;
                 top: 250px;
                 background-color: black;
                 color: white;
-                width: 30%;
+                width: 43%;
                 height: 30px;
                 border-radius: 25px;
                 padding: 0;
@@ -166,7 +166,7 @@
             width: 100%;
             left: .1%;
             position: relative;
-                bottom: -25%;
+                top: 25%;
                 text-align: center;
                 background-color: black;
                 height: 37px;
