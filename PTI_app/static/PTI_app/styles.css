@@ -1,10 +1,12 @@
         * {
             font-family: 'Montserrat';
         }
-
+        nav a {
+            text-decoration:none;
+        }
         body {
             background-color: rgb(224, 218, 209);
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
@@ -97,7 +99,12 @@
             top: 7px;
             position: relative;
         }
-
+        .snippet {
+            position: relative;
+            top: 60px;
+            left: 10%;
+            width: 80%;
+        }
         @media only screen and (max-width: 767px) {
             .custom-file-upload {
                 background-color: #d7171f;
@@ -131,7 +138,7 @@
             body {
                 background-color: rgb(224, 218, 209);
                 height: 190px;
-                overflow-y: scroll;
+                overflow-x: scroll;
 
             }
             .small_logo img {
@@ -270,15 +277,16 @@
         }
 
         @media only screen and (min-width: 768px) and (max-width: 1023px) {
+            *{
+                margin: 0;
+            }
+            
             input[type="submit"]:hover{
                 position: absolute;
                 left: 39.6%;
     
                 width: 21%;
                 height: 31px;
-    
-                
-    
             }
             a {
                 color: white;
@@ -297,14 +305,51 @@
 
             .logo {
                 position: absolute;
-                top: -6px;
+                top: 14px;
                 z-index: 20;
                 left: 105px;
                 font-style: normal;
                 font-weight: 700;
+                color: white;
                 font-size: 20px;
                 line-height: 29px;
                 overflow: hidden;
+            }
+            .custom-file-upload {
+                background-color: #d7171f;
+                height: 45px;
+                width: 50%;
+                border-radius: 25px;
+                border: none;
+                color: white;
+                font-weight: bolder;
+                position: relative;
+                top: 50px;
+                cursor: pointer;
+                padding: 12px 40px;
+            }
+            input[type="submit"], .input{
+                cursor: pointer;
+                font-weight: bolder;
+                position: absolute;
+                text-align: center;
+                left: 35%;
+                border: none;
+                top: 250px;
+                background-color: black;
+                color: white;
+                width: 30%;
+                height: 35px;
+                border-radius: 25px;
+                padding: 0;
+            }
+            footer {
+                width: 101%;
+            /* left: -1%; */
+            position: relative;
+                text-align: center;
+                background-color: black;
+                height: 37px;
             }
 
             #nav-logo {
@@ -362,9 +407,11 @@
                 color: black;
                 position: relative;
             }
-
+            .product {
+                margin-top: 50px;
+            }
             .container h1 {
-                font-size: 30px;
+                font-size: 40px;
             }
             nav ul a:nth-child(1) li {
                 position: relative;
@@ -378,16 +425,19 @@
         }
 
         @media only screen and (min-width: 1024px) {
+            
+            .snippet {
+                position: relative;
+                top: 50px;
+                left: 10%;
+                width: 80%;
+            }
 
             input[type="submit"]:hover{
                 position: absolute;
                 left: 39.6%;
-    
                 width: 21%;
                 height: 31px;
-    
-                
-    
             }
             .burger {
                 display: none;

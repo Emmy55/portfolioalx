@@ -24,11 +24,15 @@
         </div>
 
         <div class="logo" id="nav-logo">
-            <!-- <h2 onclick="location.href='{% url 'convert_pdf' %}'">EMMY<span>DEV</span></h2> -->
+            <a href="{% url 'convert_pdf' %}">
+                <h2>EMMY<span>DEV</span></h2>
+            </a>
         </div>
 
         <ul>
-            <!-- <li onclick="location.href='{% url 'convert_pdf' %}'">PDF</li> -->
+            <a href="{% url 'convert_pdf' %}">
+            <li>PDF</li>
+        </a>
         </ul>
     </nav>
 
@@ -36,7 +40,7 @@
 
     {% endblock %}
     <div class="container">
-        <h1 class="animate__animated animate__bounceInLeft">Upload a PDF to convert to Image</h1>
+        <h1 class="animated">Upload a PDF to convert to Image</h1>
 
         <div class="animated product">
             <div class="small_logo">
@@ -49,6 +53,7 @@
             <input type="submit" value="Convert">
         </form>
         </div>
+        <img class="animated snippet" src="{% static 'PTI_app/codesnippet.png' %}" alt="">
     </div>
     <footer>
         <div class="d-flex justify-content-center mb-4">
