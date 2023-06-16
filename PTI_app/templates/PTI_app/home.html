@@ -88,7 +88,7 @@
         }
         function wait() {    
             if (inputFieldMb > maxAllowedSizeMb) {
-                submitButton = disable
+                submitButton.disable = true
             }
             if (file.files.length > 0) {
                 submitButton.value = "Please wait...";
