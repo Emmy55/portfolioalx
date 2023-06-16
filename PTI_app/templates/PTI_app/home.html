@@ -86,13 +86,13 @@
                 upload.textContent = "PDF Selected"
             }
         }
-        if (inputFieldMb > maxAllowedSizeMb) {
+        
+        function wait() {    
+            if (inputFieldMb > maxAllowedSizeMb) {
                 submitButton.disable = true
                 alert("File seems too large, PDF should be less than 5mb.")
-        }
-        function wait() {    
-            
-            if (file.files.length > 0) {
+            }
+            else if (file.files.length > 0) and (inputFieldMb < maxAllowedSizeMb) {
                 submitButton.value = "Please wait...";
             } else {
                 alert("Please select a pdf")
