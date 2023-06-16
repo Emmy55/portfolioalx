@@ -67,40 +67,35 @@
         </div>
     </footer>
     <script>
-        let maxAllowedSizeMb = 5;
+  let maxAllowedSizeMb = 5;
         
-        let file = document.getElementById('myFile');
-        let upload = document.querySelector(".custom-file-upload")
-        let submitButton = document.querySelector("input[type='submit']");
-        let inputSize = file.size;
+  let file = document.getElementById('myFile');
+  let upload = document.querySelector(".custom-file-upload");
+  let submitButton = document.querySelector("input[type='submit']");
+  let inputSize = 0; // Initialize inputSize to 0
   
-  // Perform further operations with the input field
-  // You can use these values to calculate the size in megabytes
-  
-  // Example: Calculate the size in megabytes
-       let inputFieldMb = inputSize / (1024 * 1024); // Assuming inputSize is in bytes
- 
-
-        function inner() {
-            if (file.files.length > 0) {
-                upload.textContent = "PDF Selected"
-            }
-        }
-        
-        function wait() {    
-            if (inputFieldMb > maxAllowedSizeMb) {
-                submitButton.disable = true
-                alert("File seems too large, PDF should be less than 5mb.")
-            }
-            else if (file.files.length > 0) and (inputFieldMb < maxAllowedSizeMb) {
-                submitButton.value = "Please wait...";
-            } else {
-                alert("Please select a pdf")
-            }
+  function inner() {
+    if (file.files.length > 0) {
+      upload.textContent = "PDF Selected";
+      inputSize = file.files[0].size; // Get the size of the selected file
     }
- 
-    
-    </script>
+  }
+  
+  function wait() {
+    if (file.files.length > 0 && inputSize > 0) { // Check if a file is selected and inputSize is valid
+      let inputFieldMb = inputSize / (1024 * 1024); // Calculate the size in megabytes
+
+      if (inputFieldMb > maxAllowedSizeMb) {
+        submitButton.disabled = true; // Disable the submit button
+        alert("File seems too large, PDF should be less than 5MB.");
+      } else {
+        submitButton.value = "Please wait...";
+      }
+    } else {
+      alert("Please select a PDF.");
+    }
+  }
+</script>
 </div>
     <script src="{% static 'PTI_app/modern.js' %}"></script>
     <script src="modern.js"></script>
