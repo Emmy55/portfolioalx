@@ -49,7 +49,7 @@
             <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <label for="myFile" class="custom-file-upload">Choose File</label>
-            <input id="myFile" type="file" name="pdf_file" accept=".pdf" required>
+            <input id="myFile" onchange="inner()" type="file" name="pdf_file" accept=".pdf" required>
             <input type="submit" onclick="wait()" value="Convert">
         </form>
         </div>
@@ -68,7 +68,13 @@
     </footer>
     <script>
         let file = document.getElementById('myFile');
+        let upload = document.querySelector(".custom-file-upload")
         var submitButton = document.querySelector("input[type='submit']");
+        function inner() {
+            if (file.files.length > 0) {
+                upload.textContent = "PDF Selected"
+            }
+        }
         function wait() {
             if (file.files.length > 0) {
                 submitButton.value = "Please wait...";
