@@ -156,37 +156,26 @@
 
 
 <script>
-   function downloadAllImages() {
-    var imageElements = document.getElementsByClassName('images')[0].getElementsByTagName('img');
-    var imageUrls = [];
-
-    // Collect the image URLs
-    for (var i = 0; i < imageElements.length; i++) {
-        imageUrls.push(imageElements[i].src);
+    function downloadAllImages() {
+        var imageElements = document.getElementsByClassName('images')[0].getElementsByTagName('img');
+        var imageUrls = [];
+        
+        // Collect the image URLs
+        for (var i = 0; i < imageElements.length; i++) {
+            imageUrls.push(imageElements[i].src);
+        }
+        
+        // Create an anchor element for each image URL
+        for (var j = 0; j < imageUrls.length; j++) {
+            var link = document.createElement('a');
+            link.href = imageUrls[j];
+            link.download = 'image' + (j + 1) + '.jpg';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     }
-
-    // Create a folder to hold the images
-    var folderName = 'image_folder';
-    var folderLink = document.createElement('a');
-    folderLink.style.display = 'none';
-    folderLink.setAttribute('download', '');
-    folderLink.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(folderName));
-    document.body.appendChild(folderLink);
-    folderLink.click();
-    document.body.removeChild(folderLink);
-
-    // Download each image in the folder
-    for (var j = 0; j < imageUrls.length; j++) {
-        var link = document.createElement('a');
-        link.href = imageUrls[j];
-        link.download = folderName + '/image' + (j + 1) + '.jpg';
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-}
-
 </script>
 
 
