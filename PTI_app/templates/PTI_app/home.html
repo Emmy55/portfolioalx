@@ -68,7 +68,7 @@
     </footer>
     <script>
         let maxAllowedSizeMb = 5;
-        let inputFieldMb = getActualSizeOfInputFieldInMb();
+        
         let file = document.getElementById('myFile');
         let upload = document.querySelector(".custom-file-upload")
         let submitButton = document.querySelector("input[type='submit']");
@@ -86,10 +86,12 @@
                 upload.textContent = "PDF Selected"
             }
         }
-        function wait() {    
-            if (inputFieldMb > maxAllowedSizeMb) {
+        if (inputFieldMb > maxAllowedSizeMb) {
                 submitButton.disable = true
-            }
+                alert("File seems too large, PDF should be less than 5mb.")
+        }
+        function wait() {    
+            
             if (file.files.length > 0) {
                 submitButton.value = "Please wait...";
             } else {
