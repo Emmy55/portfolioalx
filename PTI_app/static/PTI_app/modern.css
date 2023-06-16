@@ -61,7 +61,7 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(-9px);
+        transform: translateX(-7px);
     }    
 }
 /* .container {
