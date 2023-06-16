@@ -67,22 +67,36 @@
         </div>
     </footer>
     <script>
+        let maxAllowedSizeMb = 5;
+        let inputFieldMb = getActualSizeOfInputFieldInMb();
         let file = document.getElementById('myFile');
         let upload = document.querySelector(".custom-file-upload")
-        var submitButton = document.querySelector("input[type='submit']");
+        let submitButton = document.querySelector("input[type='submit']");
+        let inputSize = file.size;
+  
+  // Perform further operations with the input field
+  // You can use these values to calculate the size in megabytes
+  
+  // Example: Calculate the size in megabytes
+       let inputFieldMb = inputSize / (1024 * 1024); // Assuming inputSize is in bytes
+ 
+
         function inner() {
             if (file.files.length > 0) {
                 upload.textContent = "PDF Selected"
             }
         }
-        function wait() {
+        function wait() {    
+            if (inputFieldMb > maxAllowedSizeMb) {
+                submitButton = disable
+            }
             if (file.files.length > 0) {
                 submitButton.value = "Please wait...";
             } else {
                 alert("Please select a pdf")
             }
     }
-        
+ 
     
     </script>
 </div>
