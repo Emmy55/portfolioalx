@@ -134,6 +134,7 @@
             .product {
                 position: relative;
                 top: 25px;
+                margin-bottom: 7pc;
             }
             body {
                 background-color: rgb(224, 218, 209);
@@ -166,7 +167,7 @@
             width: 100%;
             left: .1%;
             position: relative;
-                top: 25%;
+                /* top: 25%; */
                 text-align: center;
                 background-color: black;
                 height: 37px;
@@ -351,6 +352,7 @@
                 padding: 0;
             }
             footer {
+                margin-top: 20pc;
                 width: 101%;
             /* left: -1%; */
             position: relative;
