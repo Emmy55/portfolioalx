@@ -21,9 +21,7 @@ def sanitize_filename(filename):
 def upload_pdf(request):
     if request.method == 'POST' and request.FILES['pdf_file']:
         pdf_file = request.FILES['pdf_file']
-        if pdf_file.content_type != 'application/pdf':
-           return HttpResponseBadRequest('Only PDF files are allowed.')
-            
+        
         # Generate a unique output folder name
         output_folder = sanitize_filename(pdf_file.name)  # Sanitize the filename for folder creation
 
